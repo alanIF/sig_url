@@ -43,7 +43,7 @@ public class UsuarioDAO {
                 this.usuario=u;
                 this.usuario.setId(rs.getInt("id"));
              
-                return "faces/listar";
+                return "faces/home";
             //tem resultado
             }else{
                 this.usuario= new Usuario();
@@ -57,11 +57,13 @@ public class UsuarioDAO {
     }
    
       public String adicionaUsuario(Usuario u) {
-        String sql="insert into usuario"+"(email,senha)"+"values(?,?)";
+        String sql="insert into usuario"+"(nome,email,senha)"+"values(?,?,?)";
         try{
             PreparedStatement stmt=connection.prepareStatement(sql);
-            stmt.setString(1,u.getLogin());
-            stmt.setString(2,u.getSenha());
+                        stmt.setString(1,u.getNome());
+
+            stmt.setString(2,u.getLogin());
+            stmt.setString(3,u.getSenha());
            
 
             stmt.execute();    

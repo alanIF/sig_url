@@ -3,48 +3,51 @@
       xmlns:h="http://java.sun.com/jsf/html"
       xmlns:f="http://java.sun.com/jsf/core"
       xmlns:ui="http://java.sun.com/jsf/facelets"
-      xmlns:p="http://primefaces.org/ui">
+      > 
     <h:head>
-        <title>LL- Livros que ja Li: Adicionando Usuario</title>
+        <title>Sig URL: Adicionando Usuario</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"/>
+
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     </h:head>
     <h:body>
-         <p:layout fullPage="true">
-  <p:layoutUnit position="north" size="200" resizable="true" closable="true" collapsible="true">
-            <p:graphicImage url="../imagens/top.jpg" height="100%" width="100%"  />
-
-                </p:layoutUnit>
-               <p:layoutUnit position="south" size="100" closable="true" collapsible="true">
-            <p:graphicImage url="../imagens/foot.jpg" height="100%" width="100%"  />
-               </p:layoutUnit>
-                             <p:layoutUnit position="center">
+        
 
          <h:form>
-                 <h:panelGrid columns="2" cellpadding="5">
+              <div class="form-group">
+                          <h:outputText value="Nome: " />
 
-                     <h:outputText value="Login: " />
+             <h:inputText class="form-control" value="#{Usuario.usuario.nome}" required="true" label="ctdt"></h:inputText>
+                     </div>
+                     <div class="form-group">
+                          <h:outputText value="Login: " />
 
-             <p:inputText value="#{Usuario.usuario.login}" required="true" label="ctdt"></p:inputText>
+             <h:inputText class="form-control" value="#{Usuario.usuario.login}" required="true" label="ctdt"></h:inputText>
+                     </div>
+                                         <div class="form-group">
+
                      <h:outputText value="Senha: " />
 
-             <p:password value="#{Usuario.usuario.senha}" required="true"></p:password>
+             <h:inputSecret class="form-control"  value="#{Usuario.usuario.senha}" required="true"></h:inputSecret>
+                                         </div>
 
-
-             <p:commandButton value="Cadastrar" action="#{Usuario.adicionaUsuario(Usuario.usuario)}" ajax="false"/>
+             <h:commandButton  class="btn btn-primary" value="Cadastrar" action="#{Usuario.adicionaUsuario(Usuario.usuario)}" />
                  
 
         
              
-                                    </h:panelGrid>
                      </h:form>
 
 <h:form>
-                       <p:commandButton value="Voltar" action="index" ajax="false"/>
+                       <h:commandButton class="btn btn-warning"  value="Voltar" action="index" />
 
         </h:form>
-                        </p:layoutUnit>
 
    
-         </p:layout>
 
     </h:body>
 </html>
